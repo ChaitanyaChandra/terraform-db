@@ -1,5 +1,3 @@
-variable "SSH_USERNAME" {}
-variable "SSH_PASSWORD" {}
 variable "ENV" {}
 variable "AMI" {}
 variable "INSTANCE_TYPE" {}
