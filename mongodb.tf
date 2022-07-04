@@ -10,6 +10,4 @@ module "mongodb" {
   DB_COMPONENT           = "mongodb"
   DB_PORT                = 27017
   PRIVATE_HOSTED_ZONE_ID = data.terraform_remote_state.vpc.outputs.PRIVATE_HOSTED_ZONE_ID
-  ec2_spot_fleet_role    = data.terraform_remote_state.spot.outputs.spot_role_id
-  local_tags             = local.tags
 }
