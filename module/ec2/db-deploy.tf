@@ -4,19 +4,15 @@ resource "null_resource" "db-deploy" {
   }
   provisioner "remote-exec" {
     connection {
-      type     = "ssh"
-      user     = local.SSH_USERNAME
-      password = local.SSH_PASSWORD
-      host     = aws_spot_instance_request.db.private_ip
+      timeout     = "4m"
+      type        = "ssh"
+      host        = aws_spot_instance_request.db.private_ip
+      user        = "centos"
+      private_key = file("~/.ssh/key")
     }
 
     inline = [
       "ansible-pull -U https://github.com/ChaitanyaChandra/ansible-lab.git spec-pull.yml -e COMPONENT=${var.DB_COMPONENT} -e ENV=${var.ENV}"
     ]
   }
-}
-
-locals {
-  SSH_USERNAME = var.SSH_USERNAME
-  SSH_PASSWORD = var.SSH_PASSWORD
 }
