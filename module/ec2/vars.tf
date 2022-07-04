@@ -8,3 +8,5 @@ variable "ALL_SUBNET_CIDR" {}
 variable "DB_COMPONENT" {}
 variable "DB_PORT" {}
 variable "PRIVATE_HOSTED_ZONE_ID" {}
+variable "ec2_spot_fleet_role" {}
+variable "local_tags" {}
