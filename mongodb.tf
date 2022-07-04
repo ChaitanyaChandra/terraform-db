@@ -8,7 +8,7 @@ module "mongodb" {
   SUBNET_ID              = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS[0]
   VPC_ID                 = data.terraform_remote_state.vpc.outputs.VPC_ID
   PRIVATE_SUBNET_CIDR    = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR
-  ALL_SUBNET_CIDR        = concat(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR, tolist([data.terraform_remote_state.vpc.outputs.spot_subnet_id]))
+  ALL_SUBNET_CIDR        = concat(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR, tolist([data.terraform_remote_state.vpc.outputs.vpc_cidr]))
   DB_COMPONENT           = "mongodb"
   DB_PORT                = 27017
   PRIVATE_HOSTED_ZONE_ID = data.terraform_remote_state.vpc.outputs.PRIVATE_HOSTED_ZONE_ID
