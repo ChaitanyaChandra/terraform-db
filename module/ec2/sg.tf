@@ -11,13 +11,13 @@ resource "aws_security_group" "sg" {
     cidr_blocks = var.PRIVATE_SUBNET_CIDR
   }
 
-  ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = var.ALL_SUBNET_CIDR
-  }
+  #  ingress {
+  #    description = "SSH"
+  #    from_port   = 22
+  #    to_port     = 22
+  #    protocol    = "tcp"
+  #    cidr_blocks = var.ALL_SUBNET_CIDR
+  #  }
 
   egress {
     from_port        = 0
