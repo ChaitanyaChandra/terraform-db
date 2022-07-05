@@ -12,7 +12,7 @@ resource "null_resource" "db-deploy" {
     }
 
     inline = [
-      "ansible-pull -U https://github.com/ChaitanyaChandra/ansible-lab.git spec-pull.yml -e COMPONENT=${var.DB_COMPONENT} -e ENV=${var.ENV}"
+      "ansible-pull -U https://github.com/ChaitanyaChandra/ansible-lab.git spec-pull.yml -e COMPONENT=${var.DB_COMPONENT} -e ENV=${var.ENV} -i hosts"
     ]
   }
 }
